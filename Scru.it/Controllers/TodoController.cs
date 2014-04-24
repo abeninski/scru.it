@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using Scru.it.Filters;
 using Scru.it.Models;
+using System.Data.Entity;
 
 namespace Scru.it.Controllers
 {
