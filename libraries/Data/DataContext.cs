@@ -2,7 +2,6 @@
 using Data.Configuration.PageRelated;
 using Model;
 using System;
-using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 
@@ -31,13 +30,6 @@ namespace Data
         {
             get
             {
-                var connectionStringName = ConfigurationManager.AppSettings["ConnectionStringName"];
-
-                if (connectionStringName != null)
-                {
-                    return connectionStringName;
-                }
-
                 return "DefaultConnection";
             }
         }
