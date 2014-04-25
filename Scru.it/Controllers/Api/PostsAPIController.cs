@@ -22,5 +22,19 @@ namespace SiteBuilder.Web.Controllers
             return postService.GetAll();
         }
 
+        [HttpPost]
+        public void Post(Post post)
+        {
+            this.postService.Save(post);
+
+            this._dataContext.SaveChanges();
+        }
+
+        [HttpDelete]
+        public void Delete(int id)
+        {
+            this.postService.Delete(id);
+            this._dataContext.SaveChanges();
+        }
     }
 }

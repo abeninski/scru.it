@@ -9,9 +9,9 @@ namespace Services.Base
     {
         IQueryable<T> GetAllQuery();
         List<T> GetAll();
-        T GetByID(Guid id);
+        T GetByID(int id);
         void Save(T entity);
         void Delete(T entity);
-        void Delete(Guid id);
+        void Delete(int id);
     }
 }

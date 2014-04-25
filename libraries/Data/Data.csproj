@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\CommentConfiguration.cs" />
     <Compile Include="Configuration\Migration\CustomDatabaseInitializer.cs" />
     <Compile Include="Configuration\Migration\MigrationsConfiguration.cs" />
     <Compile Include="Configuration\PostConfiguration.cs" />

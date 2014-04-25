@@ -2,9 +2,17 @@
     /// <field name="todoLists" value="[new datacontext.todoList()]"></field>
     var todoLists = ko.observableArray(),
         error = ko.observable(),
-        addTodoList = function () {
+        editItem = {
+            title: ko.observable('new post')
+            , description: ko.observable('new post description')
+            , visualUrl: ko.observable('')
+        },
+        addPost = function () {
             var todoList = datacontext.createTodoList();
-            todoList.isEditingListTitle(true);
+            todoList.title(editItem.title());
+            todoList.description(editItem.description());
+            todoList.visualUrl(editItem.visualUrl())
+
             datacontext.saveNewTodoList(todoList)
                 .then(addSucceeded)
                 .fail(addFailed);
@@ -34,8 +42,9 @@
     return {
         todoLists: todoLists,
         error: error,
-        addTodoList: addTodoList,
-        deleteTodoList: deleteTodoList
+        addPost: addPost,
+        deleteTodoList: deleteTodoList,
+        editItem: editItem
     };
 
 })(ko, todoApp.datacontext);

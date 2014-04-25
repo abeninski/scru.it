@@ -1,7 +1,6 @@
 ﻿
 using Data.Repository.Base;
 using Model.Base;
-using System;
 using System.Linq;
 
 namespace Services.Base
@@ -26,7 +25,7 @@ namespace Services.Base
             return this.repository.Query().ToList();
         }
 
-        public T GetByID(Guid id)
+        public T GetByID(int id)
         {
             return this.repository.GetByID(id);
         }
@@ -48,7 +47,7 @@ namespace Services.Base
             this.repository.Delete(entity);
         }
 
-        public void Delete(Guid id)
+        public void Delete(int id)
         {
             this.repository.Delete(id);
         }

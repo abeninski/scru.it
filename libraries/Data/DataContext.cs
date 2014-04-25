@@ -39,6 +39,7 @@ namespace Data
             modelBuilder.Configurations.Add(new UserConfiguration());
             modelBuilder.Configurations.Add(new PostConfiguration());
             modelBuilder.Configurations.Add(new ScrewConfiguration());
+            modelBuilder.Configurations.Add(new CommentConfiguration());
         }
 
         public override int SaveChanges()
