@@ -6,7 +6,8 @@ window.todoApp.datacontext = (function () {
         getTodoLists: getTodoLists,
         createTodoList: createTodoList,
         saveNewTodoList: saveNewTodoList,
-        deleteTodoList: deleteTodoList
+        deleteTodoList: deleteTodoList,
+        saveChanged: saveChangedTodoList
     };
 
     return datacontext;
@@ -43,7 +44,7 @@ window.todoApp.datacontext = (function () {
     }
 
     function deleteTodoList(todoList) {
-        return ajaxRequest("delete", todoListUrl(todoList.todoListId))
+        return ajaxRequest("delete", todoListUrl(todoList.id))
             .fail(function () {
                 todoList.errorMessage("Error removing todo list.");
             });
@@ -51,7 +52,7 @@ window.todoApp.datacontext = (function () {
 
     function saveChangedTodoList(todoList) {
         clearErrorMessage(todoList);
-        return ajaxRequest("put", todoListUrl(todoList.todoListId), todoList, "text")
+        return ajaxRequest("put", todoListUrl(todoList.id), todoList, "text")
             .fail(function () {
                 todoList.errorMessage("Error updating the todo list title. Please make sure it is non-empty.");
             });

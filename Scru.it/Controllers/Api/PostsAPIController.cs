@@ -2,6 +2,7 @@
 using Model;
 using Services.Contracts;
 using System.Collections.Generic;
+using System.Linq;
 using System.Web.Http;
 
 namespace SiteBuilder.Web.Controllers
@@ -19,21 +20,35 @@ namespace SiteBuilder.Web.Controllers
         [HttpGet]
         public IEnumerable<Post> Get()
         {
-            return postService.GetAll();
+            return postService.GetAll().OrderByDescending(current => current.CreatedOn);
         }
 
         [HttpPost]
-        public void Post(Post post)
+        public Post Post(Post post)
         {
             this.postService.Save(post);
 
             this._dataContext.SaveChanges();
+
+            return post;
         }
 
         [HttpDelete]
         public void Delete(int id)
         {
             this.postService.Delete(id);
+            this._dataContext.SaveChanges();
+        }
+
+        [HttpPut]
+        public void Put(int id, Post post)
+        {
+            var dbPost = this.postService.GetByID(id);
+
+            dbPost.ScrewItCount = post.ScrewItCount;
+            dbPost.ScrewYouCount = post.ScrewYouCount;
+
+            this.postService.Save(dbPost);
             this._dataContext.SaveChanges();
         }
     }

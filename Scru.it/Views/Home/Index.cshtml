@@ -35,6 +35,11 @@
                 <br />
                 <span data-bind="text: description"></span>
                 <img style="width:200px" data-bind="attr: {src: visualUrl}" />
+                <span style="float:left" data-bind="text: screwItCount"></span>
+                <span style="float:right" data-bind="text: screwYouCount"></span>
+                <br style="clear:both" />
+                <button type="button" data-bind="click: screwIt">Screw it</button>
+                <button type="button" data-bind="click: screwYou">Screw you</button>
             </header>
 
             <a href="#" class="deletelist" data-bind="click: $parent.deleteTodoList">X</a>

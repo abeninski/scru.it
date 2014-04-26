@@ -28,6 +28,7 @@
             todoLists.unshift(todoList); // Insert new todoList at the front
         },
         deleteTodoList = function (todoList) {
+            debugger;
             todoLists.remove(todoList);
             datacontext.deleteTodoList(todoList)
                 .fail(deleteFailed);
